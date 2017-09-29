@@ -77,6 +77,9 @@
     <ClInclude Include="..\src\Zombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SceneKinematicPursue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\spritesheet.png">

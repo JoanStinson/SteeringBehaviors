@@ -47,7 +47,7 @@ int main(int argc, char ** argv)
 				curr_scene = new SceneKinematicArrive;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_4)
+			if (event.key.keysym.scancode == SDL_SCANCODE_6)
 			{
 				delete(curr_scene);
 				curr_scene = new ScenePathFinding;

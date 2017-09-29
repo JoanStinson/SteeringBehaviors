@@ -152,6 +152,7 @@
     <ClInclude Include="..\src\SDL_SimpleApp.h" />
     <ClInclude Include="..\src\Vector2D.h" />
     <ClInclude Include="..\src\Zombie.h" />
+    <ClInclude Include="SceneKinematicPursue.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\spritesheet.png" />

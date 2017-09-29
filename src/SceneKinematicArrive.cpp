@@ -40,12 +40,16 @@ void SceneKinematicArrive::update(float dtime, SDL_Event *event)
 		break;
 	}
 	Vector2D desiredV = target - agents[0]->getPosition(); // agafam el vector que resulta de restar posició on volem anar - posició actual. Resultat= velocitat adecuada
-	desiredV = desiredV.Normalize();
-	desiredV *= agents[0]->getMaxVelocity();
+	Vector2D steeringForce = desiredV - agents[0]->getVelocity();
+
 	dist = target - agents[0]->getPosition();
+
 	if (dist.Length() >= r) {
 		draw_circle(TheApp::Instance()->getRenderer(), target.x, target.y, r, 0, 0, 255, 1);
+		desiredV = desiredV.Normalize();
 		desiredV *= agents[0]->getMaxVelocity();
+		steeringForce /= agents[0]->getMaxVelocity();
+		steeringForce *= agents[0]->getMaxForce();
 	}
 	else {
 		factor = dist.Length() / r; //AQUI
@@ -53,14 +57,9 @@ void SceneKinematicArrive::update(float dtime, SDL_Event *event)
 		desiredV *= factor;
 	}
 
-	Vector2D steeringForce = desiredV - agents[0]->getVelocity();
-	steeringForce *= agents[0]->getMaxForce();
+
 
 	agents[0]->update(steeringForce, dtime, event);
-
-
-
-
 }
 
 void SceneKinematicArrive::draw()
