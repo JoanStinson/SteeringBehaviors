@@ -16,7 +16,7 @@ public:
 private:
 	std::vector<Agent*> agents;
 	Vector2D target;
-	Vector2D space;
+	Vector2D dist;
 	float factor;
 	float r;
 };
