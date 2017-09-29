@@ -1,33 +1,28 @@
-#include "ScenePathFinding.h"
+#include "SceneKinematicPursue.h"
 
 using namespace std;
 
-ScenePathFinding::ScenePathFinding()
+SceneKinematicPursue::SceneKinematicPursue()
 {
 	Agent *agent = new Agent;
-	Agent *agent2 = new Agent;
 	agent->setPosition(Vector2D(640, 360));
 	agent->setTarget(Vector2D(640, 360));
-	agent2->setPosition(Vector2D(240, 160));
-	agent2->setTarget(Vector2D(240, 160));
 	agent->loadSpriteTexture("../res/soldier.png", 4);
-	agent2->loadSpriteTexture("../res/zombie1.png", 8);
 	agents.push_back(agent);
-	agents.push_back(agent2);
 	target = Vector2D(640, 360);
-	
 }
 
-ScenePathFinding::~ScenePathFinding()
+SceneKinematicPursue::~SceneKinematicPursue()
 {
 	for (int i = 0; i < (int)agents.size(); i++)
 	{
 		delete agents[i];
 	}
+
+
 }
 
-//SEEK IS COMPLETE
-void ScenePathFinding::update(float dtime, SDL_Event *event)
+void SceneKinematicPursue::update(float dtime, SDL_Event *event)
 {
 	/* Keyboard & Mouse events */
 	switch (event->type) {
@@ -43,20 +38,18 @@ void ScenePathFinding::update(float dtime, SDL_Event *event)
 		break;
 	}
 
-	Vector2D steering_force = agents[0]->Behavior()->Seek(agents[0], agents[0]->getTarget(), dtime);
-	
+	Vector2D steering_force = agents[0]->Behavior()->KinematicSeek(agents[0], agents[0]->getTarget(), dtime);
 	agents[0]->update(steering_force, dtime, event);
 
 }
 
-void ScenePathFinding::draw()
+void SceneKinematicPursue::draw()
 {
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
-	agents[1]->draw();
 }
 
-const char* ScenePathFinding::getTitle()
+const char* SceneKinematicPursue::getTitle()
 {
-	return "SDL Steering Behaviors :: KinematicPathFinding Demo";
+	return "SDL Steering Behaviors :: KinematicSeek Demo";
 }

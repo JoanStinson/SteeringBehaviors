@@ -140,10 +140,12 @@
     <ClCompile Include="..\src\SteeringBehavior.cpp" />
     <ClCompile Include="..\src\utils .cpp" />
     <ClCompile Include="..\src\Zombie.cpp" />
+    <ClCompile Include="SceneKinematicPursue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Agent.h" />
     <ClInclude Include="..\src\SceneKinematicArrive.h" />
+    <ClInclude Include="..\src\SceneKinematicPursue.h" />
     <ClInclude Include="..\src\SceneKinematicSeek.h" />
     <ClInclude Include="..\src\ScenePathFinding.h" />
     <ClInclude Include="..\src\SteeringBehavior.h" />
@@ -152,7 +154,6 @@
     <ClInclude Include="..\src\SDL_SimpleApp.h" />
     <ClInclude Include="..\src\Vector2D.h" />
     <ClInclude Include="..\src\Zombie.h" />
-    <ClInclude Include="SceneKinematicPursue.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\res\spritesheet.png" />

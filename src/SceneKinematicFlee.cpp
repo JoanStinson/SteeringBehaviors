@@ -35,7 +35,7 @@ void SceneKinematicFlee::update(float dtime, SDL_Event *event)
 	default:
 		break;
 	}
-	Vector2D steering_force = agents[0]->Behavior()->KinematicFlee(agents[0],agents[0]->getTarget(),dtime);
+	Vector2D steering_force = agents[0]->Behavior()->Flee(agents[0],agents[0]->getTarget(),dtime);
 	agents[0]->update(steering_force, dtime, event);
 }
 

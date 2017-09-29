@@ -45,6 +45,9 @@
     <ClCompile Include="..\src\Zombie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SceneKinematicPursue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\SDL_SimpleApp.h">
@@ -77,7 +80,7 @@
     <ClInclude Include="..\src\Zombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SceneKinematicPursue.h">
+    <ClInclude Include="..\src\SceneKinematicPursue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,6 +6,7 @@
 #include "SceneKinematicSeek.h"
 #include "SceneKinematicFlee.h"
 #include "SceneKinematicArrive.h"
+#include "../src/SceneKinematicPursue.h"
 #include "ScenePathFinding.h"
 
 using namespace std;
@@ -45,6 +46,12 @@ int main(int argc, char ** argv)
 			{
 				delete(curr_scene);
 				curr_scene = new SceneKinematicArrive;
+				app->setWindowTitle(curr_scene->getTitle());
+			}
+			if (event.key.keysym.scancode == SDL_SCANCODE_4)
+			{
+				delete(curr_scene);
+				curr_scene = new SceneKinematicPursue;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_6)

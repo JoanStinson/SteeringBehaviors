@@ -39,7 +39,7 @@ void SceneKinematicSeek::update(float dtime, SDL_Event *event)
 		break;
 	}
 
-	Vector2D steering_force = agents[0]->Behavior()->KinematicSeek(agents[0], agents[0]->getTarget(), dtime);
+	Vector2D steering_force = agents[0]->Behavior()->Seek(agents[0], agents[0]->getTarget(), dtime);
 	agents[0]->update(steering_force, dtime, event);
 
 }

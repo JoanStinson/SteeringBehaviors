@@ -1,4 +1,4 @@
-#include "../src/SceneKinematicArrive.h"
+#include "SceneKinematicArrive.h"
 
 using namespace std;
 
