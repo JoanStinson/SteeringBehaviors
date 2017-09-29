@@ -2,7 +2,7 @@
 #include <vector>
 #include "Scene.h"
 #include "Agent.h"
-
+#include "Zombie.h"
 class ScenePathFinding :
 	public Scene
 {
@@ -16,6 +16,6 @@ public:
 private:
 	std::vector<Agent*> agents;
 	Vector2D target;
-
+	std::vector<Zombie*> zombies;
 
 };
