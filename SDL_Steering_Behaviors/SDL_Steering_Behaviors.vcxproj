@@ -135,6 +135,8 @@
     <ClCompile Include="..\src\SceneKinematicArrive.cpp" />
     <ClCompile Include="..\src\SceneKinematicFlee.cpp" />
     <ClCompile Include="..\src\SceneKinematicSeek .cpp" />
+    <ClCompile Include="..\src\SceneKinematicWander.cpp" />
+    <ClCompile Include="..\src\SceneKinematicWander.h" />
     <ClCompile Include="..\src\ScenePathFinding.cpp" />
     <ClCompile Include="..\src\SDL_SimpleApp.cpp" />
     <ClCompile Include="..\src\SteeringBehavior.cpp" />

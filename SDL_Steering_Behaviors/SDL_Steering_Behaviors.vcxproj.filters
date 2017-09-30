@@ -48,6 +48,12 @@
     <ClCompile Include="SceneKinematicPursue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\SceneKinematicWander.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneKinematicWander.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\SDL_SimpleApp.h">
