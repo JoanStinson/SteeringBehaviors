@@ -27,6 +27,8 @@ Agent::~Agent()
 		delete (steering_behavior);
 }
 
+
+
 SteeringBehavior * Agent::Behavior()
 {
 	return steering_behavior;

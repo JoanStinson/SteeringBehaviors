@@ -12,11 +12,12 @@ public:
 	void update(float dtime, SDL_Event *event);
 	void draw();
 	const char* getTitle();	
+	float factor;
+	float r;
 
 private:
 	std::vector<Agent*> agents;
 	Vector2D target;
 	Vector2D dist;
-	float factor;
-	float r;
+	
 };

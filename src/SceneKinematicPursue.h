@@ -18,5 +18,6 @@ private:
 	Vector2D target;
 	Vector2D dist;
 	Vector2D objective; //distancia entre zombi i persona
+	float t;
 
 };
