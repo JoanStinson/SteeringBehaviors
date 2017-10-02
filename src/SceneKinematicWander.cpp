@@ -10,8 +10,10 @@ SceneKinematicWander::SceneKinematicWander()
 	agent->loadSpriteTexture("../res/soldier.png", 4);
 	agents.push_back(agent);
 	target = Vector2D(640, 360);
-	wanderRadius = 45;
-	wanderMaxAngle = 60;
+	wanderRadius = 80;
+	wanderMaxAngle = 5;
+	wanderAngle = 0;
+	targetAngle = 0;
 }
 
 SceneKinematicWander::~SceneKinematicWander()
@@ -40,21 +42,30 @@ void SceneKinematicWander::update(float dtime, SDL_Event *event)
 		break;
 	}
 	Vector2D dist = target - agents[0]->getPosition();
+	angle = atan2f(agents[0]->getVelocity().x, agents[0]->getVelocity().y) * RAD2DEG;
+
 	wanderOffset = dist.Length();
 	wanderAngle = randomBinomial() * wanderMaxAngle;
+	targetAngle = angle + wanderAngle;
 
+	//AQUI HI HA UN ERROR. SOLUCIONAR AIXÒ I DONE
 
-	Vector2D steering_force = agents[0]->Behavior()->Wander(agents[0], agents[0]->getTarget(), wanderRadius, wanderMaxAngle, wanderOffset, dtime);
+	//centre = agents[0]->getPosition() + agents[0]->getVelocity().Normalize() * wanderOffset;
+
+	newTarget.x = target.x + wanderRadius*cos(targetAngle);
+	newTarget.y = target.y + wanderRadius*sin(targetAngle);
+	agents[0]->setTarget(newTarget);
+
+	Vector2D steering_force = agents[0]->Behavior()->Wander(agents[0], agents[0]->getTarget(), dtime);
 	agents[0]->update(steering_force, dtime, event);
-
 }
 
 void SceneKinematicWander::draw()
 {
 
 	draw_circle(TheApp::Instance()->getRenderer(), target.x, target.y, wanderRadius, 150, 0, 150, 1);
-	//SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), target.x, target.y, target.x + 45, target.y);
-	
+	SDL_RenderDrawLine(TheApp::Instance()->getRenderer(),target.x, target.y, newTarget.x, newTarget.y);
+
 	agents[0]->draw();
 }
 

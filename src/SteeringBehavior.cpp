@@ -70,11 +70,10 @@ Vector2D SteeringBehavior::Pursue(Agent *agent, Vector2D target,float maxSpeed, 
 	return steeringForce;
 }
 
-Vector2D SteeringBehavior::Wander(Agent *agent, Vector2D target,float r, float angle, float offset, float dtime)
+Vector2D SteeringBehavior::Wander(Agent *agent, Vector2D target, float dtime)
 {
-	Vector2D dist = target - agent->getPosition();
 
-	Vector2D desiredV = target - agent->getPosition(); // agafam el vector que resulta de restar posició on volem anar - posició actual. Resultat= velocitat adecuada
+	Vector2D desiredV = target - agent->getPosition(); 
 	desiredV = desiredV.Normalize();
 	desiredV *= agent->getMaxVelocity();
 	Vector2D steeringForce = desiredV - agent->getVelocity();

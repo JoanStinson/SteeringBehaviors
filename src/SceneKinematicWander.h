@@ -14,11 +14,13 @@ public:
 	const char* getTitle();
 private:
 	std::vector<Agent*> agents;
-	Vector2D target;
+	Vector2D target, centre, newTarget;
 	float orientation;
 	float wanderAngle, wanderMaxAngle, wanderOffset, wanderRadius;
 	float randomBinomial() {
 		return ((float)rand() / (RAND_MAX)) - ((float)rand() / (RAND_MAX));
 	}
+	float targetAngle, angle;
+	
 };
 
