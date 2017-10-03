@@ -1,20 +1,18 @@
 #include "ScenePathFinding.h"
 
 using namespace std;
-
+#include <iostream>
+#include <iterator>
+#include <vector>
 ScenePathFinding::ScenePathFinding()
 {
 	Agent *agent = new Agent;
 	Agent *agent2 = new Agent;
 	agent->setPosition(Vector2D(640, 360));
 	agent->setTarget(Vector2D(640, 360));
-	agent2->setPosition(Vector2D(240, 160));
-	agent2->setTarget(Vector2D(240, 160));
 	agent->loadSpriteTexture("../res/soldier.png", 4);
-	agent2->loadSpriteTexture("../res/zombie1.png", 8);
 	agents.push_back(agent);
-	agents.push_back(agent2);
-	target = Vector2D(640, 360);
+	currentTargetIndex = 0;
 	
 }
 
@@ -29,31 +27,53 @@ ScenePathFinding::~ScenePathFinding()
 //SEEK IS COMPLETE
 void ScenePathFinding::update(float dtime, SDL_Event *event)
 {
+	Vector2D steering_force;
+	Vector2D targetPosition;
+	float x;
 	/* Keyboard & Mouse events */
 	switch (event->type) {
-	case SDL_MOUSEMOTION:
+
 	case SDL_MOUSEBUTTONDOWN:
 		if (event->button.button == SDL_BUTTON_LEFT)
 		{
+			
 			target = Vector2D((float)(event->button.x), (float)(event->button.y));
-			agents[0]->setTarget(target);
+			targets.push_back(target);
 		}
 		break;
 	default:
 		break;
 	}
+	if (targets.size() != NULL) {
+		
+			Vector2D dist = agents[0]->getPosition() - targets[currentTargetIndex];
 
-	Vector2D steering_force = agents[0]->Behavior()->Seek(agents[0], agents[0]->getTarget(), dtime);
+			if (dist.Length() < 5)
+			{
+				currentTargetIndex += 1;
+			}
+			if(currentTargetIndex == targets.size()){
+				currentTargetIndex = 0;
+			}
+			agents[0]->setTarget(targets[currentTargetIndex]);
+			steering_force = agents[0]->Behavior()->Seek(agents[0], targets[currentTargetIndex], dtime);
+		}
 	
+	for (int i = 0; i < targets.size(); ++i) {
+		draw_circle(TheApp::Instance()->getRenderer(), targets[i].x, targets[i].y, 15, 255, 255, 255, 255);
+	}
+	
+		std::cout << currentTargetIndex;
 	agents[0]->update(steering_force, dtime, event);
 
 }
 
 void ScenePathFinding::draw()
 {
+	
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
-	agents[1]->draw();
+
 }
 
 const char* ScenePathFinding::getTitle()
