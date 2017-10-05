@@ -18,5 +18,7 @@ private:
 	Vector2D target;
 	std::vector<Zombie*> zombies;
 	std::vector<Vector2D>targets;
+	std::vector<Vector2D> distances;
 	Vector2D patharray[];
 };
+//

@@ -36,6 +36,7 @@ case SDL_MOUSEMOTION:
 case SDL_MOUSEBUTTONDOWN:
 	if (event->button.button == SDL_BUTTON_LEFT)
 	{
+		//
 		//target = Vector2D((float)(event->button.x), (float)(event->button.y));
 		agents[0]->setTarget(target);
 	}
@@ -68,7 +69,7 @@ void SceneKinematicWander::draw()
 	draw_circle(TheApp::Instance()->getRenderer(), centre.x, centre.y, wanderRadius, 0, 255, 0, 1);
 	SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), agents[0]->getPosition().x, agents[0]->getPosition().y, target.x, target.y);
 	draw_circle(TheApp::Instance()->getRenderer(), centre.x, centre.y, wanderRadius, 250, 250, 250, 1);
-
+	//
 	agents[0]->draw();
 }
 
