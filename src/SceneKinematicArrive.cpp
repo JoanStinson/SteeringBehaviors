@@ -11,6 +11,7 @@ SceneKinematicArrive::SceneKinematicArrive()
 	agent->loadSpriteTexture("../res/soldier.png", 4);
 
 	agents.push_back(agent);
+
 	target = Vector2D(640, 360);
 	r = 150;
 }
@@ -40,7 +41,7 @@ void SceneKinematicArrive::update(float dtime, SDL_Event *event)
 		break;
 	}
 
-	Vector2D steering_force = agents[0]->Behavior()->Arrive(agents[0], target, r, factor, dtime);
+	Vector2D steering_force = agents[0]->Behavior()->Arrive(agents[0], target, r, dtime);
 	agents[0]->update(steering_force, dtime, event);
 
 

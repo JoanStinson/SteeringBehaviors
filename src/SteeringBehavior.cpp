@@ -4,6 +4,7 @@
 
 SteeringBehavior::SteeringBehavior()
 {
+	
 }
 
 
@@ -33,10 +34,10 @@ Vector2D SteeringBehavior::Flee(Agent *agent, Vector2D target, float dtime)
 	return SteeringForce * agent->getMaxForce();
 }
 
-Vector2D SteeringBehavior::Arrive(Agent *agent, Vector2D target, float r, float factor, float dtime) {
+Vector2D SteeringBehavior::Arrive(Agent *agent, Vector2D target, float r,float dtime) {
 	Vector2D desiredV = target - agent->getPosition(); // agafam el vector que resulta de restar posició on volem anar - posició actual. Resultat= velocitat adecuada
 	Vector2D steeringForce = desiredV - agent->getVelocity();
-
+	float factor;
 	Vector2D dist = target - agent->getPosition();
 
 	if (dist.Length() >= r) {

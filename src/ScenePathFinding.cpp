@@ -12,6 +12,7 @@ ScenePathFinding::ScenePathFinding()
 	agent->setTarget(Vector2D(640, 360));
 	agent->loadSpriteTexture("../res/soldier.png", 4);
 	agents.push_back(agent);
+	agents[0]->setMass(0.2);
 	currentTargetIndex = 0;
 	distances = {};
 	targets = {};
@@ -56,29 +57,26 @@ void ScenePathFinding::update(float dtime, SDL_Event *event)
 		
 		if (dist.Length() < 5)
 		{
-			currentTargetIndex += 1;
+			for (int i = currentTargetIndex + 1; i < targets.size() - 1; ++i) {
+				float distance = (float)(agents[0]->getPosition() - targets[i]).Length();
+				if (distance < shortest)
+				{
+					shortest = distance;
+					currentTargetIndex = i;
+				}
+			}
 		}
 		if (currentTargetIndex == targets.size()) {
 			currentTargetIndex = 0;
 		}
 		
-		steering_force = agents[0]->Behavior()->Seek(agents[0], targets[currentTargetIndex], dtime);
+		steering_force = agents[0]->Behavior()->Arrive(agents[0], targets[currentTargetIndex], 30,dtime);
 
 		for (int i = 0; i < targets.size(); ++i) {
 			draw_circle(TheApp::Instance()->getRenderer(), targets[i].x, targets[i].y, 15, 255, 255, 255, 255);
 		}
 
 	
-	for (int i = 0; i < targets.size()-1; ++i){
-		float distance = (float)(agents[0]->getPosition() - targets[i]).Length();
-		if (distance < shortest)
-		{
-			shortest = distance;
-			currentTargetIndex = i;
-		}
-	}
-
-
 	}
 	
 	agents[0]->update(steering_force, dtime, event);
