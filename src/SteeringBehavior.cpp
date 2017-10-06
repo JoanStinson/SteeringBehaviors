@@ -108,7 +108,7 @@ Vector2D SteeringBehavior::CollisionAvoidance(Agent *agent, Vector2D target,Vect
 	if (distances.size() != 0) {
 
 		for (int i = 0; i < distances.size(); i++) {
-			if (distances[i].Length() <= 50 || subdistances[i].Length()<= 50 ) {//50 = radi de s'esfera
+			if (distances[i].Length() <= 50 || subdistances[i].Length() <= 50 ) {//50 = radi de s'esfera
 
 				avoidForce = ahead - obstacles[i];
 				avoidForce = avoidForce.Normalize()*MAX_AVOID_FORCE;
