@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\Agent.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\SceneCollisionAvoidance.cpp" />
     <ClCompile Include="..\src\SceneKinematicArrive.cpp" />
     <ClCompile Include="..\src\SceneKinematicEvade.cpp" />
     <ClCompile Include="..\src\SceneKinematicFlee.cpp" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Agent.h" />
+    <ClInclude Include="..\src\SceneCollisionAvoidance.h" />
     <ClInclude Include="..\src\SceneKinematicArrive.h" />
     <ClInclude Include="..\src\SceneKinematicEvade.h" />
     <ClInclude Include="..\src\SceneKinematicPursue.h" />

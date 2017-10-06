@@ -46,7 +46,7 @@ default:
 }
 
 Vector2D dist = target - agents[0]->getPosition();
-angle+= rand() % 360;
+angle = rand() % 360;
 
 
 
