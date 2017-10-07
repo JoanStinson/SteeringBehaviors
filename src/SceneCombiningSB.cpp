@@ -50,7 +50,7 @@ void SceneCombiningSB::update(float dtime, SDL_Event *event)
 			target = Vector2D((float)(event->button.x), (float)(event->button.y));
 			agents[0]->setTarget(target);
 		}
-		break;
+		break;//
 		//
 	default:
 		break;
