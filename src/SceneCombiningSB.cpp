@@ -51,6 +51,7 @@ void SceneCombiningSB::update(float dtime, SDL_Event *event)
 			agents[0]->setTarget(target);
 		}
 		break;
+		//
 	default:
 		break;
 	}
