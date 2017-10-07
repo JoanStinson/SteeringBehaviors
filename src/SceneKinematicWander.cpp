@@ -16,6 +16,15 @@ SceneKinematicWander::SceneKinematicWander()
 	randTarget = Vector2D(rand() % 1280, rand() % 768);
 	angle = 0;
 
+	Agent *bg = new Agent;
+	bg->setPosition(Vector2D(0, 383));
+	bg->loadSpriteTexture("../res/bg.jpg", 2);
+	agents.push_back(bg);
+
+	Agent *text = new Agent;
+	text->setPosition(Vector2D(635, 580));
+	text->loadSpriteTexture("../res/controls.png", 2);
+	agents.push_back(text);
 }
 
 SceneKinematicWander::~SceneKinematicWander()
@@ -62,7 +71,8 @@ agents[0]->update(steering_force, dtime, event);
 
 void SceneKinematicWander::draw()
 {
-
+	agents[1]->draw();
+	agents[2]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), centre.x, centre.y, wanderRadius,250, 0, 250, 1);
 	SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), centre.x, centre.y, target.x, target.y);
 	draw_circle(TheApp::Instance()->getRenderer(), centre.x, centre.y, wanderRadius, 0, 255, 0, 1);

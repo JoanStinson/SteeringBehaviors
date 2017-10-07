@@ -17,7 +17,15 @@ SceneCollisionAvoidance::SceneCollisionAvoidance()
 	MAX_AVOID_FORCE = 200;
 	dynamicVelocity = 0;
 	
-		
+	Agent *bg = new Agent;
+	bg->setPosition(Vector2D(0, 383));
+	bg->loadSpriteTexture("../res/bg.jpg", 2);
+	agents.push_back(bg);
+
+	Agent *text = new Agent;
+	text->setPosition(Vector2D(635, 580));
+	text->loadSpriteTexture("../res/controls.png", 2);
+	agents.push_back(text);
 }
 
 SceneCollisionAvoidance::~SceneCollisionAvoidance()
@@ -52,11 +60,11 @@ void SceneCollisionAvoidance::update(float dtime, SDL_Event *event)
 
 void SceneCollisionAvoidance::draw()
 {
+	agents[1]->draw();
+	agents[2]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), test.x, test.y, 50, 255, 0, 255, 255);
-
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
-
 }
 
 const char* SceneCollisionAvoidance::getTitle()

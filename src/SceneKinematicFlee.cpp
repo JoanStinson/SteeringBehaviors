@@ -10,6 +10,16 @@ SceneKinematicFlee::SceneKinematicFlee()
 	agent->loadSpriteTexture("../res/soldier.png", 4);
 	agents.push_back(agent);
 	target = Vector2D(640, 360);
+
+	Agent *bg = new Agent;
+	bg->setPosition(Vector2D(0, 383));
+	bg->loadSpriteTexture("../res/bg.jpg", 2);
+	agents.push_back(bg);
+
+	Agent *text = new Agent;
+	text->setPosition(Vector2D(635, 580));
+	text->loadSpriteTexture("../res/controls.png", 2);
+	agents.push_back(text);
 }
 
 SceneKinematicFlee::~SceneKinematicFlee()
@@ -41,6 +51,8 @@ void SceneKinematicFlee::update(float dtime, SDL_Event *event)
 
 void SceneKinematicFlee::draw()
 {
+	agents[1]->draw();
+	agents[2]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
 }

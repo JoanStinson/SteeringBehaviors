@@ -19,6 +19,16 @@ SceneKinematicPursue::SceneKinematicPursue()
 	agents.push_back(z1);
 
 	t = 1;
+
+	Agent *bg = new Agent;
+	bg->setPosition(Vector2D(0, 383));
+	bg->loadSpriteTexture("../res/bg.jpg", 2);
+	agents.push_back(bg);
+
+	Agent *text = new Agent;
+	text->setPosition(Vector2D(635, 580));
+	text->loadSpriteTexture("../res/controls.png", 2);
+	agents.push_back(text);
 }
 
 SceneKinematicPursue::~SceneKinematicPursue()
@@ -62,6 +72,8 @@ void SceneKinematicPursue::update(float dtime, SDL_Event *event)
 
 void SceneKinematicPursue::draw()
 {
+	agents[2]->draw();
+	agents[3]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
 	agents[1]->draw();

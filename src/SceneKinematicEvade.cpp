@@ -15,6 +15,16 @@ SceneKinematicEvade::SceneKinematicEvade()
 	agents.push_back(agent);
 	zombies.push_back(zombie);
 	target = Vector2D(640, 360);
+
+	Agent *bg = new Agent;
+	bg->setPosition(Vector2D(0, 383));
+	bg->loadSpriteTexture("../res/bg.jpg", 2);
+	agents.push_back(bg);
+
+	Agent *text = new Agent;
+	text->setPosition(Vector2D(635, 580));
+	text->loadSpriteTexture("../res/controls.png", 2);
+	agents.push_back(text);
 }
 
 SceneKinematicEvade::~SceneKinematicEvade()
@@ -75,6 +85,8 @@ void SceneKinematicEvade::update(float dtime, SDL_Event *event)
 
 void SceneKinematicEvade::draw()
 {
+	agents[1]->draw();
+	agents[2]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	draw_circle(TheApp::Instance()->getRenderer(), (int)zombies[0]->getPosition().x, (int)zombies[0]->getPosition().y, 205, 255, 0, 0, 255);
 	agents[0]->draw();
