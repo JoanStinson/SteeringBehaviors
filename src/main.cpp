@@ -12,6 +12,7 @@
 #include "SceneKinematicEvade.h"
 #include "SceneCollisionAvoidance.h"
 #include "SceneCombiningSB.h"
+#include "Flocking.h"
 using namespace std;
 
 int main(int argc, char ** argv)
@@ -84,7 +85,7 @@ int main(int argc, char ** argv)
 			if (event.key.keysym.scancode == SDL_SCANCODE_9)
 			{
 				delete(curr_scene);
-				curr_scene = new SceneCombiningSB;
+				curr_scene = new Separation;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
 			if ((event.key.keysym.scancode == SDL_SCANCODE_Q) || (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE))

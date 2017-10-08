@@ -20,8 +20,9 @@ public:
 	Vector2D Pursue(Agent *agent, Vector2D target, float maxSpeed, float dtime);
 	Vector2D Evade(Zombie *agent, Vector2D target, float maxSpeed, float dtime);
 	Vector2D Wander(Agent *agent, Vector2D target, float dtime);
-	Vector2D CollisionAvoidance(Agent *agent, Vector2D target, Vector2D avoidforce, std::vector<Vector2D> obstacles, std::vector<Vector2D> distances, std::vector<Vector2D> subdistances, float dtime, float MAX_AHEAD, float MAX_AVOID_FORCE, float v);
-	
+	Vector2D CollisionAvoidance(Agent *agent, Vector2D target, std::vector <Vector2D> obstacles, float dtime, float MAX_AHEAD, float MAX_AVOID_FORCE);
+	Vector2D Combining(Agent *agent, Vector2D target, float dtime);
+
 
 
 };

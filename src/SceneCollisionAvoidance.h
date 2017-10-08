@@ -23,7 +23,7 @@ private:
 	Vector2D test;
 	std::vector<Vector2D> obstacles;
 	std::vector<Vector2D> distances, subdistances;
-	Vector2D avoidForce;
+	std::vector<Vector2D> avoidForce;
 	float dynamicVelocity;
 
 };

@@ -56,6 +56,7 @@ void SceneKinematicPursue::update(float dtime, SDL_Event *event)
 	default:
 		break;
 	}
+	dist = agents[0]->getPosition() - agents[1]->getPosition();
 	if (agents[0]->getVelocity().Length() == 0)
 		t = 2;
 	else

@@ -93,11 +93,12 @@ Vector2D SteeringBehavior::Wander(Agent *agent, Vector2D target, float dtime)
 	return steeringForce;
 }
 
-Vector2D SteeringBehavior::CollisionAvoidance(Agent *agent, Vector2D target, Vector2D avoidForce, std::vector<Vector2D> obstacles, std::vector<Vector2D> distances, std::vector<Vector2D> subdistances, float dtime, float MAX_AHEAD, float MAX_AVOID_FORCE, float v)
+Vector2D SteeringBehavior::CollisionAvoidance(Agent *agent, Vector2D target, std::vector <Vector2D> obstacles,  float dtime, float MAX_AHEAD, float MAX_AVOID_FORCE)
 {
-	v = agent->getVelocity().Length() / agent->getMaxVelocity();
+	float v = agent->getVelocity().Length() / agent->getMaxVelocity();
 	Vector2D ahead = agent->getPosition() + agent->getVelocity()* v; // al deixar de normalitzar sa velocitat ha funcionat
 	Vector2D halfahead = agent->getPosition() + agent->getVelocity()*  0.5 *v;
+	std::vector <Vector2D> distances, subdistances ,avoidForce;
 
 	for (int i = 0; i < obstacles.size(); i++) {
 
@@ -105,24 +106,29 @@ Vector2D SteeringBehavior::CollisionAvoidance(Agent *agent, Vector2D target, Vec
 		distances.push_back(d);
 		Vector2D subD = halfahead - obstacles[i];
 		subdistances.push_back(subD);
+		Vector2D af;
+		af = ahead - obstacles[i];
+		af = af.Normalize()*MAX_AVOID_FORCE;
+		avoidForce.push_back(af);
+
 
 	}
 	//MIRAR DISTANCIA I SUBDISTANCIA////
-	for (int i = 0; i <distances.size(); i++) {
+	for (int i = 0; i <avoidForce.size(); i++) {
 
-		draw_circle(TheApp::Instance()->getRenderer(), 50, 50, 10, 255, 255, 255, 255);
-		SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), 100, 20 * i + 20, distances[i].Length(), 20 * i + 20);
+		draw_circle(TheApp::Instance()->getRenderer(),avoidForce[i].Length(), 50, 10, 255, 255, 255, 255);
+		//SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), 100, 20 * i + 20, distances[i].Length(), 20 * i + 20);
+		//SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), 100, 20 * i + 20, avoidForce[i].Length(), 20 * i + 20);
 	}
-
+	
 
 	for (int i = 0; i < obstacles.size(); i++) {
 
 		if (distances[i].Length() <= 50 || subdistances[i].Length() <= 50 || agent->getPosition().Distance(agent->getPosition(), obstacles[i]) <= 50) {//50 = radi de s'esfera
 
-			avoidForce = ahead - obstacles[i];
-			avoidForce = avoidForce.Normalize()*MAX_AVOID_FORCE;
+			
 			draw_circle(TheApp::Instance()->getRenderer(), 50, 50, 10, 255, 255, 255, 255);
-			SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), agent->getPosition().x, agent->getPosition().y, avoidForce.x, avoidForce.y);
+			SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), agent->getPosition().x, agent->getPosition().y, avoidForce[i].x, avoidForce[i].y);
 			Vector2D desiredV = target - agent->getPosition();
 			desiredV = desiredV.Normalize();
 			desiredV *= agent->getMaxVelocity();
@@ -137,7 +143,7 @@ Vector2D SteeringBehavior::CollisionAvoidance(Agent *agent, Vector2D target, Vec
 			SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), agent->getPosition().x, agent->getPosition().y, ahead.x, ahead.y);
 
 
-			return steeringForce + avoidForce;
+			return steeringForce + avoidForce[i];
 
 		}
 		else {
@@ -153,6 +159,7 @@ Vector2D SteeringBehavior::CollisionAvoidance(Agent *agent, Vector2D target, Vec
 			draw_circle(TheApp::Instance()->getRenderer(), 50, 50, 10, 255, 255, 255, 255);
 
 			SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), agent->getPosition().x, agent->getPosition().y, ahead.x, ahead.y);
+
 
 
 			return steeringForce;
