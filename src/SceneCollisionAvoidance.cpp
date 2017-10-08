@@ -1,4 +1,5 @@
 #include "SceneCollisionAvoidance.h"
+#include <time.h>
 
 using namespace std;
 
@@ -11,8 +12,11 @@ SceneCollisionAvoidance::SceneCollisionAvoidance()
 	agents.push_back(agent);
 	target = Vector2D(640, 360);
 	MAX_AHEAD = 200;
-	test = Vector2D(200, 200);
-	obstacles.push_back(test);
+	srand(time(NULL));
+	//for (int i = 0; i < rand() % 7 + 1; i++) {
+	obstacles.push_back(Vector2D(rand() % 1280, rand() % 768 + 200));
+
+	//}
 	avoidForce = Vector2D(0, 0);
 	MAX_AVOID_FORCE = 200;
 	dynamicVelocity = 0;
@@ -34,8 +38,6 @@ SceneCollisionAvoidance::~SceneCollisionAvoidance()
 	{
 		delete agents[i];
 	}
-
-
 }
 
 void SceneCollisionAvoidance::update(float dtime, SDL_Event *event)
@@ -52,17 +54,18 @@ void SceneCollisionAvoidance::update(float dtime, SDL_Event *event)
 	default:
 		break;
 	}
-
-	
 	Vector2D steering_force = agents[0]->Behavior()->CollisionAvoidance(agents[0], agents[0]->getTarget(),avoidForce, obstacles, distances, subdistances, dtime, MAX_AHEAD, MAX_AVOID_FORCE, dynamicVelocity);
 	agents[0]->update(steering_force, dtime, event);
 }
 
 void SceneCollisionAvoidance::draw()
 {
-	agents[1]->draw();
-	agents[2]->draw();
-	draw_circle(TheApp::Instance()->getRenderer(), test.x, test.y, 50, 255, 0, 255, 255);
+	//agents[1]->draw();
+	//agents[2]->draw();
+	for (int i = 0; i < obstacles.size(); i++) {
+		draw_circle(TheApp::Instance()->getRenderer(), obstacles[i].x, obstacles[i].y, 50, 255, 0, 255, 255);
+
+	}
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
 }

@@ -57,8 +57,8 @@ void SceneCombiningSB::update(float dtime, SDL_Event *event)
 	}
 
 	Vector2D steering_force = agents[0]->Behavior()->Seek(agents[0], agents[0]->getTarget(), dtime);
-	Vector2D steering_force2 = agents[0]->Behavior()->CollisionAvoidance(agents[0], agents[0]->getTarget(), dtime);
-	Vector2D steering_force3 = agents[0]->Behavior()->Pursue(agents[0], agents[0]->getTarget(), dtime);
+	//Vector2D steering_force2 = agents[0]->Behavior()->CollisionAvoidance(agents[0], agents[0]->getTarget(), dtime);
+	//Vector2D steering_force3 = agents[0]->Behavior()->Pursue(agents[0], agents[0]->getTarget(), dtime);
 	agents[0]->update(steering_force, dtime, event);
 
 }
