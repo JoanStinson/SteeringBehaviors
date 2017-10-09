@@ -13,7 +13,8 @@ SceneCollisionAvoidance::SceneCollisionAvoidance()
 	target = Vector2D(640, 360);
 	MAX_AHEAD = 200;
 	srand(time(NULL));
-	obstacles.push_back(Vector2D(rand() % 1280, rand() % 768 + 200));
+	Vector2D pos(rand() % 1000 + 100, rand() % 500 + 200);
+	obstacles.push_back(pos);
 	
 	//avoidForce = Vector2D(0, 0);
 	MAX_AVOID_FORCE = 200;
@@ -28,6 +29,13 @@ SceneCollisionAvoidance::SceneCollisionAvoidance()
 	text->setPosition(Vector2D(635, -80));
 	text->loadSpriteTexture("../res/collisionavoidance.png", 2);
 	agents.push_back(text);
+
+	Agent *water = new Agent;
+	water->setPosition(pos);
+	water->loadSpriteTexture("../res/circle.png", 2);
+	agents.push_back(water);
+	//obstacles.push_back(Vector2D(rand() % 1280, rand() % 768 + 200));
+	//water->draw();
 }
 
 SceneCollisionAvoidance::~SceneCollisionAvoidance()
@@ -59,10 +67,10 @@ void SceneCollisionAvoidance::update(float dtime, SDL_Event *event)
 void SceneCollisionAvoidance::draw()
 {
 	agents[1]->draw();
-	for (int i = 0; i < obstacles.size(); i++) {
+	agents[3]->draw();
+	/*for (int i = 0; i < obstacles.size(); i++) {
 		draw_circle(TheApp::Instance()->getRenderer(), obstacles[i].x, obstacles[i].y, 50, 255, 0, 255, 255);
-
-	}
+	}*/
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
 	agents[2]->draw();

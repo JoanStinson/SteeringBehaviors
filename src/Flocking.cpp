@@ -26,7 +26,8 @@ Separation::Separation()
 		Agent *z = new Agent;
 		z->setPosition(Vector2D(200 + rand() % 50, 200 + rand() % 50));
 		z->setMaxVelocity(Vector2D(100, 100));
-		z->loadSpriteTexture("../res/dog.png", 3);
+		if (i % 2 == 0) z->loadSpriteTexture("../res/dogblack.png", 3);
+		else z->loadSpriteTexture("../res/dog.png", 3);
 		agents.push_back(z);
 		r = 50;
 		neighbourCount = 0;
