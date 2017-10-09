@@ -10,8 +10,8 @@ SceneKinematicEvade::SceneKinematicEvade()
 	agent->setTarget(Vector2D(640, 360));
 	zombie->setPosition(Vector2D(300, 300));
 
-	agent->loadSpriteTexture("../res/soldier.png", 4);
-	zombie->loadSpriteTexture("../res/zombie1.png", 8);
+	agent->loadSpriteTexture("../res/cat.png", 3);
+	zombie->loadSpriteTexture("../res/dog.png", 3);
 	agents.push_back(agent);
 	zombies.push_back(zombie);
 	target = Vector2D(640, 360);
@@ -22,8 +22,8 @@ SceneKinematicEvade::SceneKinematicEvade()
 	agents.push_back(bg);
 
 	Agent *text = new Agent;
-	text->setPosition(Vector2D(635, 580));
-	text->loadSpriteTexture("../res/controls.png", 2);
+	text->setPosition(Vector2D(635, -80));
+	text->loadSpriteTexture("../res/evade.png", 2);
 	agents.push_back(text);
 }
 
@@ -59,38 +59,23 @@ void SceneKinematicEvade::update(float dtime, SDL_Event *event)
 		break;
 	}
 
-	/*if (agents[0]->getPosition().x < perimeterBorder)
-		desiredVelocity.x = agentMaxSpeed;
-	elif(agentPosition.x > perimeterWidth - perimeterBorder)
-		desiredVelocity.x = -agentMaxSpeed;
-	if (agentPosition.y < perimeterBorder)
-		desiredVelocity.y = agentMaxSpeed;
-	elif(agentPosition.y > perimeterHeight - perimeterBorder)
-		desiredVelocity.y = -agentMaxSpeed;
-	if (desiredVelocity.Length() > 0.0f) {
-		steeringForce = desiredVelocity - agentSpeed;
-		steeringForce /= agentMaxSpeed;
-		steeringForce *= agentMaxForce;
-	}*/
 	Vector2D dist = agents[0]->getPosition() - zombies[0]->getPosition();
 	Vector2D steering_force = agents[0]->Behavior()->Seek(agents[0], agents[0]->getTarget(), dtime);
 	agents[0]->update(steering_force, dtime, event);
 	if (dist.Length() <= 200) {
-	
-	Vector2D steering_force2 = zombies[0]->Behavior()->Flee(agents[0], zombies[0]->getTarget(), dtime);
-	
-	zombies[0]->update(steering_force2, dtime, event);
+		Vector2D steering_force2 = zombies[0]->Behavior()->Flee(agents[0], zombies[0]->getTarget(), dtime);
+		zombies[0]->update(steering_force2, dtime, event);
 	}
 }
 
 void SceneKinematicEvade::draw()
 {
 	agents[1]->draw();
-	agents[2]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	draw_circle(TheApp::Instance()->getRenderer(), (int)zombies[0]->getPosition().x, (int)zombies[0]->getPosition().y, 205, 255, 0, 0, 255);
 	agents[0]->draw();
 	zombies[0]->draw();
+	agents[2]->draw();
 }
 
 const char* SceneKinematicEvade::getTitle()

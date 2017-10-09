@@ -8,7 +8,7 @@ SceneKinematicArrive::SceneKinematicArrive()
 	Agent *agent2 = new Agent;
 	agent->setPosition(Vector2D(640, 360));
 	agent->setTarget(Vector2D(640, 360));
-	agent->loadSpriteTexture("../res/soldier.png", 4);
+	agent->loadSpriteTexture("../res/cat.png", 3);
 
 	agents.push_back(agent);
 
@@ -21,8 +21,8 @@ SceneKinematicArrive::SceneKinematicArrive()
 	agents.push_back(bg);
 
 	Agent *text = new Agent;
-	text->setPosition(Vector2D(635, 580));
-	text->loadSpriteTexture("../res/controls.png", 2);
+	text->setPosition(Vector2D(635, -80));
+	text->loadSpriteTexture("../res/arrive.png", 2);
 	agents.push_back(text);
 }
 
@@ -60,11 +60,16 @@ void SceneKinematicArrive::update(float dtime, SDL_Event *event)
 void SceneKinematicArrive::draw()
 {
 	agents[1]->draw();
-	agents[2]->draw();
-	
-	agents[0]->draw();
+
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
-	
+	if (dist.Length() >= r) {
+		draw_circle(TheApp::Instance()->getRenderer(), target.x, target.y, r, 0, 0, 255, 1);
+	}
+	else {
+		draw_circle(TheApp::Instance()->getRenderer(), target.x, target.y, r, 0, 255, 0, 1);
+	}
+	agents[0]->draw();
+	agents[2]->draw();
 }
 
 const char* SceneKinematicArrive::getTitle()

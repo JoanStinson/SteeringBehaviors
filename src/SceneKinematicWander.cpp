@@ -7,7 +7,7 @@ SceneKinematicWander::SceneKinematicWander()
 	Agent *agent = new Agent;
 	agent->setPosition(Vector2D(640, 360));
 	agent->setTarget(Vector2D(640, 360));
-	agent->loadSpriteTexture("../res/soldier.png", 4);
+	agent->loadSpriteTexture("../res/cat.png", 3);
 	agents.push_back(agent);
 	target = Vector2D(640, 360);
 	wanderRadius = 150;
@@ -22,8 +22,8 @@ SceneKinematicWander::SceneKinematicWander()
 	agents.push_back(bg);
 
 	Agent *text = new Agent;
-	text->setPosition(Vector2D(635, 580));
-	text->loadSpriteTexture("../res/controls.png", 2);
+	text->setPosition(Vector2D(635, -80));
+	text->loadSpriteTexture("../res/wander.png", 2);
 	agents.push_back(text);
 }
 
@@ -56,10 +56,7 @@ default:
 Vector2D dist = target - agents[0]->getPosition();
 angle = rand() % 360;
 
-
-
 centre = agents[0]->getPosition() + agents[0]->getVelocity().Normalize() * wanderOffset;
-
 
 target.x = centre.x + wanderRadius * sin(angle);
 target.y = centre.y + wanderRadius * cos(angle);
@@ -72,14 +69,13 @@ agents[0]->update(steering_force, dtime, event);
 void SceneKinematicWander::draw()
 {
 	agents[1]->draw();
-	agents[2]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), centre.x, centre.y, wanderRadius,250, 0, 250, 1);
 	SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), centre.x, centre.y, target.x, target.y);
 	draw_circle(TheApp::Instance()->getRenderer(), centre.x, centre.y, wanderRadius, 0, 255, 0, 1);
 	SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), agents[0]->getPosition().x, agents[0]->getPosition().y, target.x, target.y);
 	draw_circle(TheApp::Instance()->getRenderer(), centre.x, centre.y, wanderRadius, 250, 250, 250, 1);
-	
 	agents[0]->draw();
+	agents[2]->draw();
 }
 
 const char* SceneKinematicWander::getTitle()

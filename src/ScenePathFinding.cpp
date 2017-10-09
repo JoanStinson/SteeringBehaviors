@@ -10,7 +10,7 @@ ScenePathFinding::ScenePathFinding()
 	Agent *agent2 = new Agent;
 	agent->setPosition(Vector2D(640, 360));
 	agent->setTarget(Vector2D(640, 360));
-	agent->loadSpriteTexture("../res/soldier.png", 4);
+	agent->loadSpriteTexture("../res/cat.png", 3);
 	agents.push_back(agent);
 	agents[0]->setMass(0.2);
 	currentTargetIndex = 0;
@@ -23,8 +23,8 @@ ScenePathFinding::ScenePathFinding()
 	agents.push_back(bg);
 
 	Agent *text = new Agent;
-	text->setPosition(Vector2D(635, 580));
-	text->loadSpriteTexture("../res/controls.png", 2);
+	text->setPosition(Vector2D(635, -80));
+	text->loadSpriteTexture("../res/pathfollowing.png", 2);
 	agents.push_back(text);
 }
 
@@ -82,9 +82,7 @@ void ScenePathFinding::update(float dtime, SDL_Event *event)
 		
 		steering_force = agents[0]->Behavior()->Arrive(agents[0], targets[currentTargetIndex], 30,dtime);
 
-		for (int i = 0; i < targets.size(); ++i) {
-			draw_circle(TheApp::Instance()->getRenderer(), targets[i].x, targets[i].y, 15, 255, 255, 255, 255);
-		}
+
 
 	
 	}
@@ -96,10 +94,12 @@ void ScenePathFinding::update(float dtime, SDL_Event *event)
 void ScenePathFinding::draw()
 {
 	agents[1]->draw();
-	agents[2]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
+	for (int i = 0; i < targets.size(); ++i) {
+		draw_circle(TheApp::Instance()->getRenderer(), targets[i].x, targets[i].y, 15, 255, 255, 255, 255);
+	}
 	agents[0]->draw();
-
+	agents[2]->draw();
 }
 
 const char* ScenePathFinding::getTitle()

@@ -8,7 +8,7 @@ SceneCombiningSB::SceneCombiningSB()
 	Agent *agent = new Agent;
 	agent->setPosition(Vector2D(640, 360));
 	agent->setTarget(Vector2D(640, 360));
-	agent->loadSpriteTexture("../res/soldier.png", 4);
+	agent->loadSpriteTexture("../res/cat.png", 3);
 	agents.push_back(agent);
 	target = Vector2D(640, 360);
 
@@ -20,8 +20,8 @@ SceneCombiningSB::SceneCombiningSB()
 	agents.push_back(bg);
 
 	Agent *text = new Agent;
-	text->setPosition(Vector2D(635, 580));
-	text->loadSpriteTexture("../res/controls.png", 2);
+	text->setPosition(Vector2D(635, -80));
+	text->loadSpriteTexture("../res/combiningsb.png", 2);
 	agents.push_back(text);
 }
 
@@ -57,8 +57,6 @@ void SceneCombiningSB::update(float dtime, SDL_Event *event)
 	}
 
 	Vector2D steering_force = agents[0]->Behavior()->Seek(agents[0], agents[0]->getTarget(), dtime);
-	//Vector2D steering_force2 = agents[0]->Behavior()->CollisionAvoidance(agents[0], agents[0]->getTarget(), dtime);
-	//Vector2D steering_force3 = agents[0]->Behavior()->Pursue(agents[0], agents[0]->getTarget(), dtime);
 	agents[0]->update(steering_force, dtime, event);
 
 }
@@ -66,9 +64,9 @@ void SceneCombiningSB::update(float dtime, SDL_Event *event)
 void SceneCombiningSB::draw()
 {
 	agents[1]->draw();
-	agents[2]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
+	agents[2]->draw();
 }
 
 const char* SceneCombiningSB::getTitle()

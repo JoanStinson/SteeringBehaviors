@@ -9,12 +9,12 @@ SceneKinematicPursue::SceneKinematicPursue()
 
 	agent->setPosition(Vector2D(640, 360));
 	agent->setTarget(Vector2D(640, 360));
-	agent->loadSpriteTexture("../res/soldier.png", 4);
+	agent->loadSpriteTexture("../res/cat.png", 3);
 	agents.push_back(agent);
 	target = Vector2D(640, 360);
 
 	z1->setPosition(Vector2D(100, 100));
-	z1->loadSpriteTexture("../res/zombie1.png", 8);
+	z1->loadSpriteTexture("../res/dog.png", 3);
 	z1->setMass(0.2);
 	agents.push_back(z1);
 
@@ -26,8 +26,8 @@ SceneKinematicPursue::SceneKinematicPursue()
 	agents.push_back(bg);
 
 	Agent *text = new Agent;
-	text->setPosition(Vector2D(635, 580));
-	text->loadSpriteTexture("../res/controls.png", 2);
+	text->setPosition(Vector2D(635, -80));
+	text->loadSpriteTexture("../res/pursue.png", 2);
 	agents.push_back(text);
 }
 
@@ -74,10 +74,10 @@ void SceneKinematicPursue::update(float dtime, SDL_Event *event)
 void SceneKinematicPursue::draw()
 {
 	agents[2]->draw();
-	agents[3]->draw();
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
 	agents[1]->draw();
+	agents[3]->draw();
 }
 
 const char* SceneKinematicPursue::getTitle()

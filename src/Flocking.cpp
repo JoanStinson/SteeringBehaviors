@@ -7,7 +7,7 @@ Separation::Separation()
 	Agent *agent = new Agent;
 	agent->setPosition(Vector2D(640, 360));
 	agent->setTarget(Vector2D(640, 360));
-	agent->loadSpriteTexture("../res/soldier.png", 4);
+	agent->loadSpriteTexture("../res/cat.png", 3);
 	agents.push_back(agent);
 	target = Vector2D(640, 360);
 	srand(time(NULL));
@@ -18,16 +18,15 @@ Separation::Separation()
 	agents.push_back(bg);
 
 	Agent *text = new Agent;
-	text->setPosition(Vector2D(635, 580));
-	text->loadSpriteTexture("../res/controls.png", 2);
+	text->setPosition(Vector2D(635, -80));
+	text->loadSpriteTexture("../res/combiningsb.png", 2);
 	agents.push_back(text);
 	for (int i = 0; i < rand() % 10 + 4; i++) {
 
 		Agent *z = new Agent;
 		z->setPosition(Vector2D(200 + rand() % 50, 200 + rand() % 50));
-		//agent->setTarget(Vector2D(640, 360));
 		z->setMaxVelocity(Vector2D(100, 100));
-		z->loadSpriteTexture("../res/zombie1.png", 8);
+		z->loadSpriteTexture("../res/dog.png", 3);
 		agents.push_back(z);
 		r = 50;
 		neighbourCount = 0;
@@ -110,11 +109,13 @@ void Separation::update(float dtime, SDL_Event *event)
 
 void Separation::draw()
 {
+	agents[1]->draw();
 	for (int i = 1; i < agents.size(); i++)
 		agents[i]->draw();
 
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
 	agents[0]->draw();
+	agents[2]->draw();
 }
 
 const char* Separation::getTitle()

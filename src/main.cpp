@@ -58,24 +58,24 @@ int main(int argc, char ** argv)
 				curr_scene = new SceneKinematicPursue;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
-			/*if (event.key.keysym.scancode == SDL_SCANCODE_5)
-			{
+			if (event.key.keysym.scancode == SDL_SCANCODE_5) {
 				delete(curr_scene);
-				curr_scene = new SceneKinematicWander;
+				curr_scene = new SceneKinematicEvade;
 				app->setWindowTitle(curr_scene->getTitle());
-			}*/
+			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_6)
 			{
 				delete(curr_scene);
-				curr_scene = new ScenePathFinding;
+				curr_scene = new SceneKinematicWander;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_7)
 			{
 				delete(curr_scene);
-				curr_scene = new SceneKinematicEvade;
+				curr_scene = new ScenePathFinding;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
+
 			if (event.key.keysym.scancode == SDL_SCANCODE_8)
 			{
 				delete(curr_scene);
