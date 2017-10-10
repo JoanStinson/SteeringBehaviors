@@ -70,15 +70,16 @@ void Separation::update(float dtime, SDL_Event *event)
 	
 	float t;
 	dist = agents[0]->getPosition() - agents[3]->getPosition();
-	if (agents[0]->getVelocity().Length() == 0)
-		t = 2;
-	else
-		t = dist.Length() / agents[0]->getVelocity().Length();
+	
 
 	Vector2D steering_force = agents[0]->Behavior()->Seek(agents[0], agents[0]->getTarget(), dtime);
 	agents[0]->update(steering_force, dtime, event);
 
 	for (int i = 3; i < agents.size(); i++) {
+		if (agents[0]->getVelocity().Length() == 0)
+			t = 2;
+		else
+			t = dist.Length() / agents[0]->getVelocity().Length();
 		steering_force = agents[i]->Behavior()->Pursue(agents[i], agents[0]->getPosition() + agents[0]->getVelocity()*t, 100, dtime);
 
 		for (int j = 4; j < agents.size(); j++) {
