@@ -4,29 +4,29 @@ C++ AI Steering Behaviors algorithm's implementation following the book "Artific
 
 Use the mouse to target a destination and press the following numeric keys to open the following scenes:
 
-- ## 1: Seek
+- ## Key 1: Seek
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/seek.gif)
 
-- ## 2: Flee
+- ## Key 2: Flee
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/flee.gif)
 
-- ## 3: Arrive
+- ## Key 3: Arrive
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/arrive.gif)
 
-- ## 4: Pursue
+- ## Key 4: Pursue
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/pursue.gif)
 
-- ## 5: Evade
+- ## Key 5: Evade
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/evade.gif)
 
-- ## 6: Wander
+- ## Key 6: Wander
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/wander.gif)
 
-- ## 7: Path Following
+- ## Key 7: Path Following
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/pathfollowing.gif)
 
-- ## 8: Collision Avoidance
+- ## Key 8: Collision Avoidance
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/collisionavoidance.gif)
 
-- ## 9: Combining Steering Behaviors
+- ## Key 9: Combining Steering Behaviors
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/combining.gif)
