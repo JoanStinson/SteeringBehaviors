@@ -1,8 +1,8 @@
-# C++ Artificial Intelligence Steering Behaviors
+# C++ SDL Artificial Intelligence Steering Behaviors
 
-C++ AI Steering Behaviors algorithm's implementation following the book "Artificial Intelligence for Games by Ian Millington and John Funge".
+C++ artificial intelligence steering behaviors algorithm's implementation following the book "Artificial Intelligence for Games" by Ian Millington and John Funge.
 
-Use the mouse to target a destination and press the following numeric keys to open the following scenes:
+Use the mouse to target a destination and the following keys to open the following scenes:
 
 - ## Key 1: Seek
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/seek.gif)
