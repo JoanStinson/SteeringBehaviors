@@ -4,22 +4,22 @@ C++ AI Steering Behaviors algorithm's implementation following the book "Artific
 
 Use the mouse to target a destination and press the following numeric keys to open the following scenes:
 
-- **1: Seek**
+- ##1: Seek
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/seek.gif)
 
-- 2: Flee
+- ###2: Flee
 ![SteeringBehaviors](Steering Behaviors GIFs/flee.gif)
 
-- 3: Arrive
+- **3: Arrive
 ![SteeringBehaviors](Steering Behaviors GIFs/arrive.gif)
 
-- 4: Pursue
+- **4: Pursue
 ![SteeringBehaviors](Steering Behaviors GIFs/pursue.gif)
 
-- 5: Evade
+- **5: Evade**
 ![SteeringBehaviors](Steering Behaviors GIFs/evade.gif)
 
-- 6: Wander
+- **6: Wander**
 ![SteeringBehaviors](Steering Behaviors GIFs/wander.gif)
 
 - 7: Path Following
