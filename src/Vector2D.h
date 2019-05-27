@@ -283,4 +283,5 @@ namespace Vector2DUtils
 		Vector2D P12 = p2 - p1;
 		return (float)atan2(P12.y, P12.x) * RAD2DEG;
 	}
+	
 }

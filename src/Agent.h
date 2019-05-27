@@ -20,7 +20,7 @@ private:
 	Vector2D target;
 
 	float mass;
-	float orientation;
+	
 	float max_force;
 	float max_velocity;
 
@@ -43,13 +43,16 @@ public:
 	void setPosition(Vector2D position);
 	void setTarget(Vector2D target);
 	void setVelocity(Vector2D velocity);
-	void setMaxVelocity(Vector2D mv);
 	void setMass(float mass);
 	void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 	void update(Vector2D steering_force, float dtime, SDL_Event *event);
 	void draw();
 	bool Agent::loadSpriteTexture(char* filename, int num_frames=1);
-	float getMaxForce() {
-		return max_force;
-	}
+	float orientation;
+	int currentTargetIndex = 0;
+
+	const int perimeterBorder = 100;
+	//const int perimeterBorder2 = 80;
+	const int perimeterWidth = 1300;
+	const int perimeterHeight = 800;
 };

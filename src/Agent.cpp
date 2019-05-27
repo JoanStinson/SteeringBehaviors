@@ -27,8 +27,6 @@ Agent::~Agent()
 		delete (steering_behavior);
 }
 
-
-
 SteeringBehavior * Agent::Behavior()
 {
 	return steering_behavior;
@@ -77,9 +75,6 @@ void Agent::setMass(float _mass)
 void Agent::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 {
 	color = { r, g, b, a };
-}
-void Agent::setMaxVelocity(Vector2D mv) {
-	max_velocity = mv.Length();
 }
 
 void Agent::update(Vector2D steering_force, float dtime, SDL_Event *event)

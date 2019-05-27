@@ -15,6 +15,7 @@ public:
 private:
 	std::vector<Agent*> agents;
 	Vector2D target;
-	int a;
+	bool pursue = false;
+	bool evade = false;
 };
 
