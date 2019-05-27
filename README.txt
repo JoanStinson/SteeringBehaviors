@@ -1,3 +1,11 @@
-Default/Tecla 1: Escena amb l'exercici 1
+Press the following buttons to open the following scenes:
 
-Tecla 2: S'hauria d'executar el goap a la consola, però no ens surt el que hauria per tema temps
+1 - Seek
+2 - Flee
+3 - Arrive
+4 - Pursue
+5 - Evade
+6 - Wander
+7 - Path Following
+8 - Collision Avoidance
+9 - Combining Steering Behaviors
