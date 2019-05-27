@@ -7,26 +7,26 @@ Use the mouse to target a destination and press the following numeric keys to op
 - ## 1: Seek
 ![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/seek.gif)
 
-- ### 2: Flee
-![SteeringBehaviors](Steering Behaviors GIFs/flee.gif)
+- ## 2: Flee
+![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/flee.gif)
 
-- **3: Arrive
-![SteeringBehaviors](Steering Behaviors GIFs/arrive.gif)
+- ## 3: Arrive
+![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/arrive.gif)
 
-- **4: Pursue
-![SteeringBehaviors](Steering Behaviors GIFs/pursue.gif)
+- ## 4: Pursue
+![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/pursue.gif)
 
-- **5: Evade**
-![SteeringBehaviors](Steering Behaviors GIFs/evade.gif)
+- ## 5: Evade
+![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/evade.gif)
 
-- **6: Wander**
-![SteeringBehaviors](Steering Behaviors GIFs/wander.gif)
+- ## 6: Wander
+![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/wander.gif)
 
-- 7: Path Following
-![SteeringBehaviors](Steering Behaviors GIFs/pathfollowing.gif)
+- ## 7: Path Following
+![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/pathfollowing.gif)
 
-- 8: Collision Avoidance
-![SteeringBehaviors](Steering Behaviors GIFs/collisionavoidance.gif)
+- ## 8: Collision Avoidance
+![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/collisionavoidance.gif)
 
-- 9: Combining Steering Behaviors
-![SteeringBehaviors](Steering Behaviors GIFs/combining.gif)
+- ## 9: Combining Steering Behaviors
+![](https://github.com/JoanStinson/SteeringBehaviors/blob/master/Steering%20Behaviors%20GIFs/combining.gif)
