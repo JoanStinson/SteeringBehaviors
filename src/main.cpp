@@ -4,16 +4,15 @@
 
 #include "SDL_SimpleApp.h"
 #include "SceneKinematicSeek.h"
-#include "SceneFlee.h"
-#include "ScenePursue.h"
-#include "SceneEvade.h"
-#include "SceneWanderBehavior.h"
-#include "ScenePathFollowing.h"
-#include "SceneFlocking.h"
+#include "SceneKinematicFlee.h"
+#include "SceneKinematicArrive.h"
+#include "../src/SceneKinematicPursue.h"
+#include "SceneKinematicWander.h"
+#include "ScenePathFinding.h"
+#include "SceneKinematicEvade.h"
 #include "SceneCollisionAvoidance.h"
-
-
-
+#include "SceneCombiningSB.h"
+#include "Flocking.h"
 using namespace std;
 
 int main(int argc, char ** argv)
@@ -44,46 +43,51 @@ int main(int argc, char ** argv)
 			if (event.key.keysym.scancode == SDL_SCANCODE_2)
 			{
 				delete(curr_scene);
-				curr_scene = new SceneFlee;
+				curr_scene = new SceneKinematicFlee;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_3)
 			{
 				delete(curr_scene);
-				curr_scene = new ScenePursue;
+				curr_scene = new SceneKinematicArrive;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_4)
 			{
 				delete(curr_scene);
-				curr_scene = new SceneEvade;
+				curr_scene = new SceneKinematicPursue;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
-			if (event.key.keysym.scancode == SDL_SCANCODE_5)
-			{
+			if (event.key.keysym.scancode == SDL_SCANCODE_5) {
 				delete(curr_scene);
-				curr_scene = new SceneWanderBehavior;
+				curr_scene = new SceneKinematicEvade;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_6)
 			{
 				delete(curr_scene);
-				curr_scene = new ScenePathFollowing;
+				curr_scene = new SceneKinematicWander;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
 			if (event.key.keysym.scancode == SDL_SCANCODE_7)
 			{
 				delete(curr_scene);
-				curr_scene = new SceneFlocking;
+				curr_scene = new ScenePathFinding;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
+
 			if (event.key.keysym.scancode == SDL_SCANCODE_8)
 			{
 				delete(curr_scene);
 				curr_scene = new SceneCollisionAvoidance;
 				app->setWindowTitle(curr_scene->getTitle());
 			}
-			
+			if (event.key.keysym.scancode == SDL_SCANCODE_9)
+			{
+				delete(curr_scene);
+				curr_scene = new Separation;
+				app->setWindowTitle(curr_scene->getTitle());
+			}
 			if ((event.key.keysym.scancode == SDL_SCANCODE_Q) || (event.key.keysym.scancode == SDL_SCANCODE_ESCAPE))
 			{
 				quit = true;

@@ -1,25 +1,25 @@
-#include "Agent.h"
+#include "Zombie.h"
 
 using namespace std;
 
-Agent::Agent() : sprite_texture(0),
-                 position(Vector2D(100, 100)),
-	             target(Vector2D(1000, 100)),
-	             velocity(Vector2D(0,0)),
-	             mass(0.1f),
-	             max_force(50),
-	             max_velocity(200),
-	             orientation(0),
-	             color({ 255,255,255,255 }),
-				 sprite_num_frames(0),
-	             sprite_w(0),
-	             sprite_h(0),
-	             draw_sprite(false)
+Zombie::Zombie() : sprite_texture(0),
+position(Vector2D(200, 200)),
+target(Vector2D(1000, 100)),
+velocity(Vector2D(0, 0)),
+mass(0.1f),
+max_force(50),
+max_velocity(200),
+orientation(0),
+color({ 255,255,255,255 }),
+sprite_num_frames(0),
+sprite_w(0),
+sprite_h(0),
+draw_sprite(false)
 {
 	steering_behavior = new SteeringBehavior;
 }
 
-Agent::~Agent()
+Zombie::~Zombie()
 {
 	if (sprite_texture)
 		SDL_DestroyTexture(sprite_texture);
@@ -27,62 +27,57 @@ Agent::~Agent()
 		delete (steering_behavior);
 }
 
-
-
-SteeringBehavior * Agent::Behavior()
+SteeringBehavior * Zombie::Behavior()
 {
 	return steering_behavior;
 }
 
-Vector2D Agent::getPosition()
+Vector2D Zombie::getPosition()
 {
 	return position;
 }
 
-Vector2D Agent::getTarget()
+Vector2D Zombie::getTarget()
 {
 	return target;
 }
 
-Vector2D Agent::getVelocity()
+Vector2D Zombie::getVelocity()
 {
 	return velocity;
 }
 
-float Agent::getMaxVelocity()
+float Zombie::getMaxVelocity()
 {
 	return max_velocity;
 }
 
-void Agent::setPosition(Vector2D _position)
+void Zombie::setPosition(Vector2D _position)
 {
 	position = _position;
 }
 
-void Agent::setTarget(Vector2D _target)
+void Zombie::setTarget(Vector2D _target)
 {
 	target = _target;
 }
 
-void Agent::setVelocity(Vector2D _velocity)
+void Zombie::setVelocity(Vector2D _velocity)
 {
 	velocity = _velocity;
 }
 
-void Agent::setMass(float _mass)
+void Zombie::setMass(float _mass)
 {
 	mass = _mass;
 }
 
-void Agent::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+void Zombie::setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
 {
 	color = { r, g, b, a };
 }
-void Agent::setMaxVelocity(Vector2D mv) {
-	max_velocity = mv.Length();
-}
 
-void Agent::update(Vector2D steering_force, float dtime, SDL_Event *event)
+void Zombie::update(Vector2D steering_force, float dtime, SDL_Event *event)
 {
 
 	//cout << "agent update:" << endl;
@@ -116,30 +111,30 @@ void Agent::update(Vector2D steering_force, float dtime, SDL_Event *event)
 	if (position.y > TheApp::Instance()->getWinSize().y) position.y = 0;
 }
 
-void Agent::draw()
+void Zombie::draw()
 {
 	if (draw_sprite)
 	{
 		Uint32 sprite;
-		
+
 		if (velocity.Length() < 5.0)
 			sprite = 1;
 		else
 			sprite = (int)(SDL_GetTicks() / (-0.1*velocity.Length() + 250)) % sprite_num_frames;
-		
+
 		SDL_Rect srcrect = { (int)sprite * sprite_w, 0, sprite_w, sprite_h };
 		SDL_Rect dstrect = { (int)position.x - (sprite_w / 2), (int)position.y - (sprite_h / 2), sprite_w, sprite_h };
 		SDL_Point center = { sprite_w / 2, sprite_h / 2 };
-		SDL_RenderCopyEx(TheApp::Instance()->getRenderer(), sprite_texture, &srcrect, &dstrect, orientation+90, &center, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(TheApp::Instance()->getRenderer(), sprite_texture, &srcrect, &dstrect, orientation + 90, &center, SDL_FLIP_NONE);
 	}
-	else 
+	else
 	{
 		draw_circle(TheApp::Instance()->getRenderer(), (int)position.x, (int)position.y, 15, color.r, color.g, color.b, color.a);
-		SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), (int)position.x, (int)position.y, (int)(position.x+15*cos(orientation*DEG2RAD)), (int)(position.y+15*sin(orientation*DEG2RAD)));
+		SDL_RenderDrawLine(TheApp::Instance()->getRenderer(), (int)position.x, (int)position.y, (int)(position.x + 15 * cos(orientation*DEG2RAD)), (int)(position.y + 15 * sin(orientation*DEG2RAD)));
 	}
 }
 
-bool Agent::loadSpriteTexture(char* filename, int _num_frames)
+bool Zombie::loadSpriteTexture(char* filename, int _num_frames)
 {
 	if (_num_frames < 1) return false;
 

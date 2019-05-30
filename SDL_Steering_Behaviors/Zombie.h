@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 #include <iostream>
 #include <minmax.h>
 #include <SDL.h>
@@ -43,12 +44,11 @@ public:
 	void setPosition(Vector2D position);
 	void setTarget(Vector2D target);
 	void setVelocity(Vector2D velocity);
-	void setMaxVelocity(Vector2D mv);
 	void setMass(float mass);
 	void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
 	void update(Vector2D steering_force, float dtime, SDL_Event *event);
 	void draw();
-	bool Agent::loadSpriteTexture(char* filename, int num_frames=1);
+	bool Agent::loadSpriteTexture(char* filename, int num_frames = 1);
 	float getMaxForce() {
 		return max_force;
 	}

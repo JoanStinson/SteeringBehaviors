@@ -15,150 +15,108 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SDL_SimpleApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Agent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utils .cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SteeringBehavior.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneKinematicFlee.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneKinematicSeek .cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneKinematicArrive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ScenePathFinding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Zombie.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneKinematicPursue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneKinematicWander.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneKinematicWander.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneKinematicEvade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneCollisionAvoidance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SceneCombiningSB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Flocking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\SDL_SimpleApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Agent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Vector2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SteeringBehavior.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneKinematicSeek.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneKinematicArrive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ScenePathFinding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Zombie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneKinematicPursue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneKinematicEvade.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneCollisionAvoidance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneCombiningSB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Flocking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <Image Include="..\res\spritesheet.png">
       <Filter>Resource Files</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\Agent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\Flocking.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneArrival.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneCollisionAvoidance.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneCombiningSB.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneFlee.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicArrive.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicEvade.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicFlee.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicPursue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicSeek .cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicWander.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\ScenePathFinding.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneSeek.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneSeekPursue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneSeekSeek.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneWander.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SDL_SimpleApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SteeringBehavior.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\utils .cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\Zombie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\Agent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\Flocking.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneArrival.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneCollisionAvoidance.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneCombiningSB.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneFlee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicArrive.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicEvade.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicFlee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicPursue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicSeek.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneKinematicWander.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\ScenePathFinding.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneSeek.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneSeekPursue.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneSeekSeek.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SceneWander.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SDL_SimpleApp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\SteeringBehavior.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\Vector2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SteeringBehaviors_ToniFerrari_HuiyuanZhou_JoanGinard\SDL_Steering_Behaviors-master\src\Zombie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

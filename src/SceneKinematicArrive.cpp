@@ -1,15 +1,19 @@
-#include "SceneKinematicSeek.h"
+#include "SceneKinematicArrive.h"
 
 using namespace std;
 
-SceneKinematicSeek::SceneKinematicSeek()
+SceneKinematicArrive::SceneKinematicArrive()
 {
 	Agent *agent = new Agent;
-	agent->setPosition(Vector2D(640,360));
+	Agent *agent2 = new Agent;
+	agent->setPosition(Vector2D(640, 360));
 	agent->setTarget(Vector2D(640, 360));
 	agent->loadSpriteTexture("../res/cat.png", 3);
+
 	agents.push_back(agent);
+
 	target = Vector2D(640, 360);
+	r = 150;
 
 	Agent *bg = new Agent;
 	bg->setPosition(Vector2D(0, 383));
@@ -18,22 +22,20 @@ SceneKinematicSeek::SceneKinematicSeek()
 
 	Agent *text = new Agent;
 	text->setPosition(Vector2D(635, -80));
-	text->loadSpriteTexture("../res/seek.png", 2);
+	text->loadSpriteTexture("../res/arrive.png", 2);
 	agents.push_back(text);
 }
 
-SceneKinematicSeek::~SceneKinematicSeek()
+SceneKinematicArrive::~SceneKinematicArrive()
 {
 	for (int i = 0; i < (int)agents.size(); i++)
 	{
 		delete agents[i];
 	}
-	
-	
 }
 
-//SEEK IS COMPLETE
-void SceneKinematicSeek::update(float dtime, SDL_Event *event)
+
+void SceneKinematicArrive::update(float dtime, SDL_Event *event)
 {
 	/* Keyboard & Mouse events */
 	switch (event->type) {
@@ -49,20 +51,28 @@ void SceneKinematicSeek::update(float dtime, SDL_Event *event)
 		break;
 	}
 
-	Vector2D steering_force = agents[0]->Behavior()->Seek(agents[0], agents[0]->getTarget(), dtime);
+	Vector2D steering_force = agents[0]->Behavior()->Arrive(agents[0], target, r, dtime);
 	agents[0]->update(steering_force, dtime, event);
+
 
 }
 
-void SceneKinematicSeek::draw()
+void SceneKinematicArrive::draw()
 {
 	agents[1]->draw();
+
 	draw_circle(TheApp::Instance()->getRenderer(), (int)target.x, (int)target.y, 15, 255, 0, 0, 255);
+	if (dist.Length() >= r) {
+		draw_circle(TheApp::Instance()->getRenderer(), target.x, target.y, r, 0, 0, 255, 1);
+	}
+	else {
+		draw_circle(TheApp::Instance()->getRenderer(), target.x, target.y, r, 0, 255, 0, 1);
+	}
 	agents[0]->draw();
 	agents[2]->draw();
 }
 
-const char* SceneKinematicSeek::getTitle()
+const char* SceneKinematicArrive::getTitle()
 {
-	return "SDL Steering Behaviors :: KinematicSeek Demo";
+	return "SDL Steering Behaviors :: KinematicArrive Demo";
 }
