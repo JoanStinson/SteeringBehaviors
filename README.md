@@ -1,4 +1,4 @@
-# C++ SDL Artificial Intelligence Steering Behaviors
+# Steering Behaviors
 
 C++ artificial intelligence steering behaviors algorithm's implementation following the book "Artificial Intelligence for Games" by Ian Millington and John Funge.
 
