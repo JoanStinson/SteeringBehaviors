@@ -7,7 +7,7 @@ C++ artificial intelligence steering behaviors algorithm's implementation follow
     <img alt="Made With SDL" src="https://img.shields.io/badge/made%20with-SDL-57b9d3.svg?logo=CPlusPlus">
   </a>
   <a>
-    <img alt="License" src="https://img.shields.io/github/license/JoanStinson/SteeringBehaviors?&logo=github">
+    <img alt="License" src="https://img.shields.io/github/license/JoanStinson/SteeringBehaviors?logo=github">
   </a>
   <a>
     <img alt="Last Commit" src="https://img.shields.io/github/last-commit/JoanStinson/SteeringBehaviors?logo=Mapbox&color=orange">
