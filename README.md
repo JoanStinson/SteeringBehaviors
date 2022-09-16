@@ -2,6 +2,27 @@
 
 C++ artificial intelligence steering behaviors algorithm's implementation following the book "Artificial Intelligence for Games" by Ian Millington and John Funge.
 
+<p align="center">
+  <a>
+    <img alt="Made With SDL" src="https://img.shields.io/badge/made%20with-SDL-57b9d3.svg?logo=C">
+  </a>
+  <a>
+    <img alt="License" src="https://img.shields.io/github/license/JoanStinson/SteeringBehaviors?&logo=github">
+  </a>
+  <a>
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/JoanStinson/SteeringBehaviors?logo=Mapbox">
+  </a>
+  <a>
+    <img alt="Repo Size" src="https://img.shields.io/github/repo-size/JoanStinson/SteeringBehaviors?logo=VirtualBox">
+  </a>
+  <a>
+    <img alt="Downloads" src="https://img.shields.io/github/downloads/JoanStinson/SteeringBehaviors/total?color=brightgreen">
+  </a>
+  <a>
+    <img alt="Last Release" src="https://img.shields.io/github/v/release/JoanStinson/SteeringBehaviors?include_prereleases&logo=Dropbox&color=yellow">
+  </a>
+</p>
+
 Use the mouse to target a destination and the following keys to open the following scenes:
 
 - ## Key 1: Seek
